@@ -1,0 +1,76 @@
+.mycol {
+  height: auto;
+}
+.input-search {
+  max-width: 300px;
+  height: 30px;
+  box-shadow: 0px 0 15px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition-duration: 350ms;
+}
+.mycol .card {
+  height: 70%;
+}
+.autorComment {
+  width: 40%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.form-rating {
+  max-width: fit-content;
+}
+.form {
+  width: 70%;
+}
+
+.mycol img {
+  object-fit: contain;
+  height: 60%;
+}
+.col-imput {
+  overflow: hidden;
+}
+.col-book {
+  overflow: auto;
+  height: 80vh;
+}
+.mycol .card-title {
+  max-height: 48px;
+  overflow: auto;
+}
+
+.personal-button button {
+  border: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+}
+.mycol .card-title::-webkit-scrollbar {
+  opacity: 0;
+}
+
+.personal-button button::after {
+  margin-inline-start: 20px;
+}
+
+footer {
+  background-color: rgb(49, 49, 49);
+}
+
+.myAncor {
+  text-decoration: none;
+  color: white;
+}
+
+.myAncor:hover {
+  color: rgb(0, 255, 98);
+}
+
+.text-title {
+  color: aqua;
+}
