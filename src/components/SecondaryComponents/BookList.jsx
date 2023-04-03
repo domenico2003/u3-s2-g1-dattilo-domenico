@@ -36,6 +36,7 @@ class BookList extends Component {
                 return (
                   <SingleBook
                     nameBookState={this.props.nameBookState}
+                    submitUpdate={this.props.submitUpdate}
                     libro={book}
                     key={"my-first-" + index}
                   />

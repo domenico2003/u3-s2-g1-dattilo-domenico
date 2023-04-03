@@ -32,7 +32,10 @@ class MyMain extends Component {
             >
               <h3>Hai selezionato:</h3>
               <h2 className="text-center">{this.state.book.title}</h2>
-              <InputComments book={this.state.book}></InputComments>
+              <InputComments
+                setSubmit={this.setSubmit}
+                book={this.state.book}
+              ></InputComments>
             </Col>
           )}
         </Row>

@@ -22,7 +22,24 @@ class CommentsList extends Component {
     this.setState({ comments: dato });
   };
 
-  deleteThisComment = async (idCommento) => {};
+  componentDidUpdate(vecchiaProps) {
+    if (vecchiaProps.submitUpdate !== this.props.submitUpdate) {
+      this.myFetch();
+    }
+  }
+  deleteThisComment = async (idCommento) => {
+    let risposta = await fetch(
+      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJiMDMzNzY4MzQzMTAwMTRkZWE4NjYiLCJpYXQiOjE2ODA1NDA0NzMsImV4cCI6MTY4MTc1MDA3M30.8S5TtWxzkTBrVv-_LX4RmXfhrs6Zb8ziVWZJ-ywN5Lc",
+        },
+      }
+    );
+    console.log(risposta);
+  };
 
   componentDidMount() {
     this.myFetch();
@@ -38,20 +55,20 @@ class CommentsList extends Component {
               <div className="d-flex justify-content-between align-items-center">
                 <span className="autorComment">{comment.author}</span>
                 <Badge bg="secondary">{comment.rate}/5</Badge>
-                <Button
-                  variant="danger"
-                  className="p-2"
-                  onClick={() => {
-                    this.deleteThisComment();
-                  }}
-                >
-                  Delete
-                </Button>
               </div>
               <p>{comment.comment}</p>
             </ListGroup.Item>
           );
         })}
+        <Button
+          variant="danger"
+          className="p-2"
+          onClick={() => {
+            this.deleteThisComment(this.props.asin);
+          }}
+        >
+          Delete
+        </Button>
       </ListGroup>
     );
   }
