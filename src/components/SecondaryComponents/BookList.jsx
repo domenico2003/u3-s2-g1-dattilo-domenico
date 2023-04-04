@@ -38,6 +38,8 @@ class BookList extends Component {
                     nameBookState={this.props.nameBookState}
                     submitUpdate={this.props.submitUpdate}
                     libro={book}
+                    myFetch={this.props.myFetch}
+                    comments={this.props.comments}
                     key={"my-first-" + index}
                   />
                 );
@@ -48,6 +50,8 @@ class BookList extends Component {
                   <SingleBook
                     nameBookState={this.props.nameBookState}
                     libro={book}
+                    myFetch={this.props.myFetch}
+                    comments={this.props.comments}
                     key={"my-second-" + index}
                   />
                 );
@@ -61,6 +65,8 @@ class BookList extends Component {
                   <SingleBook
                     nameBookState={this.props.nameBookState}
                     libro={book}
+                    myFetch={this.props.myFetch}
+                    comments={this.props.comments}
                     key={"my-first-" + index}
                   />
                 );
@@ -71,6 +77,8 @@ class BookList extends Component {
                   <SingleBook
                     nameBookState={this.props.nameBookState}
                     libro={book}
+                    myFetch={this.props.myFetch}
+                    comments={this.props.comments}
                     key={"my-second-" + index}
                   />
                 );

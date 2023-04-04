@@ -6,6 +6,12 @@ class SingleBook extends Component {
   state = {
     selected: false,
   };
+
+  componentDidUpdate(preProp, preState) {
+    if (preState.selected !== this.state.selected) {
+      console.log("singleBooks", this.props.comments);
+    }
+  }
   render() {
     return (
       <>
@@ -35,7 +41,11 @@ class SingleBook extends Component {
               </div>
             </Card.Body>
             {this.state.selected && (
-              <CommentsList asin={this.props.libro.asin} />
+              <CommentsList
+                myFetch={this.props.myFetch}
+                comments={this.props.comments}
+                asin={this.props.libro.asin}
+              />
             )}
           </Card>
         </Col>

@@ -6,8 +6,8 @@ class InputComments extends Component {
     bookSelected: null,
     objComment: {
       comment: "",
-      rate: "",
-      elementId: "",
+      rate: "1",
+      elementId: this.props.asin,
     },
   };
 
@@ -21,7 +21,7 @@ class InputComments extends Component {
   }
 
   writingComment = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     let risposta = await fetch(
       "https://striveschool-api.herokuapp.com/api/comments",
@@ -36,7 +36,10 @@ class InputComments extends Component {
         },
       }
     );
-    console.log(risposta.response);
+    if (risposta.ok) {
+      console.log("risposta");
+      this.props.myFetch();
+    }
   };
 
   bookselect = () => {
@@ -44,11 +47,14 @@ class InputComments extends Component {
   };
 
   render() {
-    console.log("render", this.state.objComment);
     return (
       <>
         <Form
-          onSubmit={this.writingComment}
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.writingComment();
+          }}
+          //
           className="form d-flex flex-column align-items-center"
         >
           <Form.Label>Rating</Form.Label>
@@ -60,10 +66,10 @@ class InputComments extends Component {
                 objComment: {
                   ...this.state.objComment,
                   rate: e.target.value,
-                  elementId: this.state.bookSelected.asin,
                 },
               });
             }}
+            value={this.state.objComment.rate}
             required
           >
             <option value="1">One</option>
@@ -82,7 +88,6 @@ class InputComments extends Component {
                 objComment: {
                   ...this.state.objComment,
                   comment: e.target.value,
-                  elementId: this.state.bookSelected.asin,
                 },
               });
             }}
